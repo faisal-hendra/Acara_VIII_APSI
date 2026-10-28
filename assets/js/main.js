@@ -243,6 +243,20 @@
   });
 
   /**
+   * Contact form -> WhatsApp
+   */
+  const contactForm = document.querySelector('.contact-form');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const data = new FormData(contactForm);
+      const text = `Halo PT Aman Indah Makmur,\n\nNama: ${data.get('name')}\nEmail: ${data.get('email')}\nTelepon: ${data.get('phone')}\nSubjek: ${data.get('subject')}\n\nPesan:\n${data.get('message')}`;
+      window.location.href = `https://wa.me/6282138154528?text=${encodeURIComponent(text)}`;
+    });
+  }
+
+  /**
    * Navmenu Scrollspy
    */
   let navmenulinks = document.querySelectorAll('.navmenu a');
