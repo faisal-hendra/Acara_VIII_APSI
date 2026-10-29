@@ -5208,6 +5208,191 @@ section,
 }
 
 /*--------------------------------------------------------------
+# Homepage Visual Refinements
+--------------------------------------------------------------*/
+.index-page {
+  --accent-color: #137da8;
+  --nav-hover-color: #0f7395;
+}
+
+.index-page .header .topbar {
+  background-color: var(--accent-color);
+}
+
+.index-page .light-background {
+  --background-color: #f4f8fa;
+  --surface-color: #ffffff;
+}
+
+.index-page .section-bg::after {
+  opacity: 0.035;
+}
+
+.index-page section.section:not(#hero) {
+  padding-block: 84px;
+}
+
+.index-page .section-title {
+  padding-bottom: 16px;
+}
+
+.index-page .section-title h2 {
+  font-size: clamp(1.65rem, 2.4vw, 2rem);
+  line-height: 1.2;
+  margin-bottom: 14px;
+  padding-bottom: 18px;
+}
+
+.index-page .section-title h2:before {
+  width: 120px;
+}
+
+.index-page .hero .hero-content .content,
+.index-page .hero .hero-content .hero-image {
+  padding-block: 72px;
+}
+
+.index-page .hero .hero-content .content h1 {
+  max-width: 19ch;
+  font-size: clamp(2rem, 3vw, 2.55rem);
+  line-height: 1.18;
+  letter-spacing: -0.035em;
+  margin-bottom: 1.25rem;
+}
+
+.index-page .hero .hero-content .content p {
+  max-width: 38rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.index-page .hero .hero-content .content .cta-group {
+  gap: 1.25rem;
+}
+
+.index-page .hero .hero-content .content .cta-group .btn-primary {
+  padding: 0.85rem 1.5rem;
+  border-radius: 6px;
+}
+
+.index-page .hero .hero-content .hero-image iframe {
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+}
+
+.index-page .about .content h2 {
+  font-size: clamp(1.75rem, 2.7vw, 2.15rem);
+  line-height: 1.25;
+}
+
+.index-page .about .image-container img {
+  border-radius: 12px;
+}
+
+.index-page .clients .client-item,
+.index-page .struktur .struktur-card {
+  border-radius: 12px;
+  border-color: color-mix(in srgb, var(--heading-color), transparent 90%);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--heading-color), transparent 96%);
+}
+
+.index-page .stats .stats-container {
+  border-radius: 12px;
+}
+
+.index-page .stats .stat-item {
+  padding: 2.5rem 2rem;
+}
+
+.index-page .services .service-item {
+  padding: 2.5rem 2rem;
+  border: 1px solid color-mix(in srgb, var(--heading-color), transparent 92%);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--heading-color), transparent 96%);
+}
+
+.index-page .services .service-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 1.5rem;
+}
+
+.index-page .services .service-icon i {
+  font-size: 30px;
+}
+
+.index-page .services h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.index-page .portfolio .portfolio-card {
+  border-radius: 12px;
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--heading-color), transparent 96%);
+}
+
+.index-page .portfolio .image-container {
+  border-radius: 10px;
+}
+
+.index-page .portfolio .content {
+  padding: 20px 12px;
+}
+
+.index-page .faq .faq-item .faq-header {
+  padding-block: 24px;
+}
+
+.index-page .faq .faq-item .faq-header h4 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+@media (min-width: 1200px) {
+  .index-page .navmenu a,
+  .index-page .navmenu a:focus {
+    padding-inline: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .index-page section.section:not(#hero) {
+    padding-block: 56px;
+  }
+
+  .index-page .hero .hero-content .content,
+  .index-page .hero .hero-content .hero-image {
+    padding-block: 36px;
+  }
+
+  .index-page .hero .hero-content .content h1 {
+    max-width: 20ch;
+    font-size: clamp(1.8rem, 7vw, 2.2rem);
+  }
+
+  .index-page .hero .hero-content .content p {
+    margin-bottom: 1.5rem;
+  }
+
+  .index-page .stats .stat-item {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .index-page .services .service-item {
+    padding: 2rem 1.5rem;
+  }
+
+  .index-page .faq .faq-item .faq-header {
+    padding-block: 18px;
+  }
+}
+
+/*--------------------------------------------------------------
 # Struktur Organisasi Section
 --------------------------------------------------------------*/
 .struktur .struktur-tier {
