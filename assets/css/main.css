@@ -604,7 +604,7 @@ h6 {
   color: var(--accent-color);
 }
 
-.footer .footer-about a {
+.footer .footer-about > a {
   color: var(--heading-color);
   font-size: 24px;
   font-weight: 600;
@@ -613,6 +613,11 @@ h6 {
 
 .footer .footer-contact p {
   margin-bottom: 5px;
+}
+
+.footer .footer-contact p.footer-contact-sm {
+  font-size: 12px;
+  line-height: 1.5;
 }
 
 .footer .copyright {
@@ -628,6 +633,27 @@ h6 {
 .footer .credits {
   margin-top: 6px;
   font-size: 13px;
+}
+
+/*--------------------------------------------------------------
+# Accessible Inline Links on Light Backgrounds
+--------------------------------------------------------------*/
+.faq .faq-content a,
+.footer .footer-contact p a,
+.contact .contact-sidebar .contact-details a,
+.privacy-2 .privacy-contact .contact-details a {
+  color: var(--heading-color);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  text-underline-offset: 3px;
+}
+
+.faq .faq-content a:hover,
+.footer .footer-contact p a:hover,
+.contact .contact-sidebar .contact-details a:hover,
+.privacy-2 .privacy-contact .contact-details a:hover {
+  color: var(--nav-hover-color);
+  text-decoration-color: currentColor;
 }
 
 /*--------------------------------------------------------------
@@ -786,6 +812,14 @@ h6 {
   color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
+.page-title .breadcrumbs ol li a {
+  color: var(--heading-color);
+}
+
+.page-title .breadcrumbs ol li a:hover {
+  color: var(--nav-hover-color);
+}
+
 /*--------------------------------------------------------------
 # Global Sections
 --------------------------------------------------------------*/
@@ -812,6 +846,43 @@ section,
   .section {
     scroll-margin-top: 60px;
   }
+}
+
+/*--------------------------------------------------------------
+# Section Background Illustrations
+--------------------------------------------------------------*/
+.section-bg {
+  position: relative;
+  isolation: isolate;
+}
+
+.section-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: grayscale(100%);
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+.section-bg-1::after {
+  background-image: url("../img/bg/section-bg-1.jfif");
+}
+
+.section-bg-2::after {
+  background-image: url("../img/bg/lantai-pabrik.png");
+}
+
+.section-bg-3::after {
+  background-image: url("../img/bg/pexels-daniel-dan-47825192-7598915.jpg");
+}
+
+.section-bg-4::after {
+  background-image: url("../img/bg/pexels-mandiri-abadi-396768996-14804699.jpg");
 }
 
 /*--------------------------------------------------------------
@@ -1419,7 +1490,7 @@ section,
 .about .image-container .image-overlay {
   position: absolute;
   bottom: 30px;
-  left: 30px;
+  right: 30px;
   background-color: var(--surface-color);
   padding: 25px;
   border-radius: 8px;
@@ -1430,7 +1501,7 @@ section,
 @media (max-width: 576px) {
   .about .image-container .image-overlay {
     bottom: 20px;
-    left: 20px;
+    right: 20px;
     padding: 20px;
   }
 }
@@ -1738,6 +1809,47 @@ section,
   justify-content: center;
 }
 
+.stats .stat-item .stat-icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 1.25rem auto;
+  background-color: var(--accent-color);
+  opacity: 0.75;
+  transition: all 0.4s ease;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.stats .stat-item:hover .stat-icon {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.stats .stat-item .stat-icon-bulb {
+  -webkit-mask-image: url("../img/icons/bulb-lighting.svg");
+  mask-image: url("../img/icons/bulb-lighting.svg");
+}
+
+.stats .stat-item .stat-icon-conveyor {
+  -webkit-mask-image: url("../img/icons/conveyor.svg");
+  mask-image: url("../img/icons/conveyor.svg");
+}
+
+.stats .stat-item .stat-icon-factory {
+  -webkit-mask-image: url("../img/icons/factory.svg");
+  mask-image: url("../img/icons/factory.svg");
+}
+
+.stats .stat-item .stat-icon-clock {
+  -webkit-mask-image: url("../img/icons/clock-circle.svg");
+  mask-image: url("../img/icons/clock-circle.svg");
+}
+
 .stats .stat-item .stat-number {
   color: var(--accent-color);
   font-family: var(--heading-font);
@@ -1874,6 +1986,12 @@ section,
 
   .stats .stat-item:nth-child(4) {
     border-bottom: none;
+  }
+
+  .stats .stat-item .stat-icon {
+    width: 34px;
+    height: 34px;
+    margin-bottom: 1rem;
   }
 
   .stats .stat-item .stat-number {
