@@ -1346,7 +1346,7 @@ section,
 }
 
 .about .content .description {
-  margin-bottom: 60px;
+  margin-bottom: 0;
 }
 
 .about .content .description p {
@@ -1428,67 +1428,15 @@ section,
   letter-spacing: 0.5px;
 }
 
-.about .content .cta-section {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
-
-@media (max-width: 576px) {
-  .about .content .cta-section {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-  }
-}
-
-.about .content .cta-section .btn-primary {
-  background-color: var(--accent-color);
-  color: var(--contrast-color);
-  padding: 14px 30px;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 400;
-  transition: all 0.3s ease;
-  border: 2px solid var(--accent-color);
-}
-
-.about .content .cta-section .btn-primary:hover {
-  background-color: transparent;
-  color: var(--accent-color);
-}
-
-.about .content .cta-section .btn-link {
-  color: var(--heading-color);
-  text-decoration: none;
-  font-weight: 400;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.3s ease;
-}
-
-.about .content .cta-section .btn-link:hover {
-  color: var(--accent-color);
-}
-
-.about .content .cta-section .btn-link:hover i {
-  transform: translateX(4px);
-}
-
-.about .content .cta-section .btn-link i {
-  transition: transform 0.3s ease;
-}
-
 .about .image-container {
   position: relative;
   height: 100%;
-  min-height: 380px;
+  min-height: 320px;
 }
 
 @media (max-width: 992px) {
   .about .image-container {
-    min-height: 310px;
+    min-height: 280px;
   }
 }
 
@@ -2102,14 +2050,6 @@ section,
   transform: scale(1.1);
 }
 
-.services .service-item:hover .service-link {
-  color: var(--accent-color);
-}
-
-.services .service-item:hover .service-link i {
-  transform: translateX(8px);
-}
-
 .services .service-icon {
   width: 80px;
   height: 80px;
@@ -2184,22 +2124,50 @@ section,
   font-weight: 600;
 }
 
-.services .service-link {
+.services .services-cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 48px;
+  text-align: center;
+}
+
+.services .services-cta p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--heading-color);
+}
+
+.services .services-cta-link {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
   font-size: 14px;
   font-weight: 500;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--heading-color);
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
-.services .service-link i {
-  font-size: 16px;
+.services .services-cta-link:hover {
+  background-color: color-mix(in srgb, var(--accent-color), #000 10%);
+  transform: translateY(-2px);
+}
+
+.services .services-cta-link i {
   transition: transform 0.3s ease;
+}
+
+.services .services-cta-link:hover i {
+  transform: translateX(4px);
 }
 
 @media (max-width: 768px) {
@@ -3416,7 +3384,7 @@ section,
 # Contact Section
 --------------------------------------------------------------*/
 .contact .contact-form-container {
-  padding: 60px 0 32px;
+  padding: 60px 0 0;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -3429,7 +3397,7 @@ section,
 }
 
 .contact .contact-form-container .form-intro {
-  margin-bottom: 60px;
+  margin-bottom: 32px;
 }
 
 .contact .contact-form-container .form-intro h2 {
@@ -3456,7 +3424,7 @@ section,
 }
 
 .contact .contact-form-container .contact-form .row {
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
 .contact .contact-form-container .contact-form .row:last-of-type {
@@ -3465,11 +3433,11 @@ section,
 
 .contact .contact-form-container .contact-form .form-field {
   position: relative;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
 .contact .contact-form-container .contact-form .form-field.message-field {
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .contact .contact-form-container .contact-form .form-field .field-label {
@@ -3548,7 +3516,11 @@ section,
 
 .contact .contact-sidebar {
   background: color-mix(in srgb, var(--accent-color), transparent 97%);
+  height: 100%;
   padding: 60px 40px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .contact .contact-sidebar .contact-header {
