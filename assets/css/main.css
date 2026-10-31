@@ -766,6 +766,11 @@ h6 {
   opacity: 1;
 }
 
+/* Back-to-top button temporarily disabled */
+.scroll-top {
+  display: none !important;
+}
+
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
 --------------------------------------------------------------*/
