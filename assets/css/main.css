@@ -1892,17 +1892,18 @@ section,
 }
 
 .stats .achievement-badge {
+  grid-column: 1 / -1;
   background: var(--surface-color);
-  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 80%);
-  border-radius: 8px;
+  border: 0;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border-radius: 0;
   padding: 2.5rem 2rem;
   text-align: center;
-  transition: all 0.4s ease;
+  transition: background-color 0.4s ease;
 }
 
 .stats .achievement-badge:hover {
-  border-color: color-mix(in srgb, var(--accent-color), transparent 60%);
-  transform: translateY(-3px);
+  background: color-mix(in srgb, var(--accent-color), transparent 97%);
 }
 
 .stats .achievement-badge .badge-icon {
@@ -3269,6 +3270,80 @@ section,
   line-height: 1.8;
   font-size: 1rem;
   font-weight: 300;
+}
+
+.faq .faq-extra-items {
+  display: none;
+}
+
+.faq.faq-expanded .faq-extra-items {
+  display: block;
+  animation: faq-dropdown 0.3s ease;
+}
+
+@keyframes faq-dropdown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq.faq-expanded .faq-extra-items {
+    animation: none;
+  }
+}
+
+.faq .faq-more {
+  display: flex;
+  justify-content: center;
+  padding-top: 32px;
+}
+
+.faq .faq-more-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 65%);
+  border-radius: 30px;
+  background: transparent;
+  color: var(--accent-color);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.faq .faq-more-toggle:hover,
+.faq .faq-more-toggle:focus-visible {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.faq .faq-more-toggle i {
+  font-size: 14px;
+  transition: transform 0.3s ease;
+}
+
+.faq .faq-more-toggle[aria-expanded="true"] i {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 576px) {
+  .faq .faq-more-toggle {
+    width: 100%;
+    padding: 12px 18px;
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -5812,6 +5887,34 @@ section,
   .privacy-page .privacy-contact .contact-details {
     padding: 20px;
   }
+}
+
+/*--------------------------------------------------------------
+# Justify Paragraf panjang
+--------------------------------------------------------------*/
+.about .content .lead,
+.about .content .description p,
+.stats,
+.services .service-item>p:not(.service-lead),
+.faq .faq-item .faq-content .content-inner p,
+.privacy-2 .privacy-header .header-content .intro-text,
+.privacy-2 .privacy-content .content-section p,
+.terms-of-service .tos-content .content-section p,
+.terms-of-service .tos-content .content-section .info-box p,
+.terms-of-service .tos-content .content-section .alert-box p,
+.terms-of-service .tos-content .content-section .disclaimer-box p,
+.terms-of-service .tos-content .content-section .notice-box p,
+.service-details .service-intro .lead,
+.service-details .visual-section .service-text p,
+.service-details .process-section .process-info p,
+.service-details .info-grid .info-card .testimonial-content p,
+.portfolio-details .project-hero .hero-content .project-subtitle,
+.portfolio-details .content-section .project-overview .overview-text,
+.portfolio-details .content-section .project-overview .challenge-solution .challenge-block p,
+.portfolio-details .content-section .project-overview .challenge-solution .solution-block p,
+.portfolio-details .metrics-showcase .metrics-content p {
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 @media print {

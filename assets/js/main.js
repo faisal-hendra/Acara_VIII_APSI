@@ -232,6 +232,43 @@
   });
 
   /**
+   * FAQ "show more" toggle
+   */
+  const faqMoreToggle = document.querySelector('.faq-more-toggle');
+
+  if (faqMoreToggle) {
+    const faqSection = faqMoreToggle.closest('.faq');
+    const faqMoreLabel = faqMoreToggle.querySelector('.faq-more-label');
+    const faqExtraItems = faqSection.querySelectorAll('#faq-extra .faq-item');
+
+    if (faqMoreLabel) {
+      faqMoreLabel.textContent = 'Selengkapnya';
+    }
+
+    faqMoreToggle.addEventListener('click', function() {
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      const nextExpanded = !isExpanded;
+
+      faqSection.classList.toggle('faq-expanded', nextExpanded);
+      this.setAttribute('aria-expanded', String(nextExpanded));
+
+      if (faqMoreLabel) {
+        faqMoreLabel.textContent = nextExpanded
+          ? 'Sembunyikan'
+          : `Selengkapnya`;
+      }
+
+      if (nextExpanded) {
+        faqExtraItems.forEach((item) => {
+          item.removeAttribute('data-aos');
+          item.removeAttribute('data-aos-delay');
+          item.classList.add('aos-animate');
+        });
+      }
+    });
+  }
+
+  /**
    * Correct scrolling position upon page load for URLs containing hash links.
    */
   window.addEventListener('load', function(e) {
