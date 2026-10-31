@@ -113,6 +113,11 @@
     selector: '.glightbox'
   });
 
+  GLightbox({
+    selector: '.profile-video-lightbox',
+    touchNavigation: false
+  });
+
   /**
    * Initiate Pure Counter
    */
